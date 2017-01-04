@@ -34,6 +34,6 @@ for i in range(10):
 print(list10)
 index_smallest = find_smallest(list10, len(list10), 0)
 print("list10[", index_smallest, "] = ", list10[index_smallest], sep='')
-list10 = selection_sort(list10, len(list10))
+selection_sort(list10, len(list10))
 print("\nThe last print\n")
 print(list10)
