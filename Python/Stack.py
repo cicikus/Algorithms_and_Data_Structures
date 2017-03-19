@@ -1,5 +1,7 @@
 class Stack:
 	def __init__(self):
+		# Python 'lists' are implemented as arrays.
+		# Therefore all operations will take constant time.
 		self.items = []
 
 	def isEmpty(self):
@@ -15,10 +17,7 @@ class Stack:
 		return self.items[self.size() - 1]
 
 	def size(self):
-		size = 0
-		for x in self.items:
-			size += 1
-		return size
+		return len(self.items)
 
 	def isEmpty(self):
 		if self.size() == 0:
@@ -26,11 +25,22 @@ class Stack:
 		else:
 			return False
 
+	def popAll(self):
+		print(self.items)
+		del self.items[:]
+
+	def print(self):
+		print(self.items)
+
+
 stack1 = Stack()
-stack1.push('j')
-stack1.push('a')
-stack1.push('c')
-stack1.push('o')
-stack1.push('b')
-stack1.push('s')
+stack1.push(4)
+stack1.push(5)
+stack1.push(6)
+stack1.push(2)
+stack1.push(1)
+stack1.push(3)
 print(stack1.peek())
+stack1.print()
+stack1.popAll()
+stack1.print()
