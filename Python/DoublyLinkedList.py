@@ -24,7 +24,6 @@ class DoublyLinkedList:
 
 	def __init__(self, head=None, tail=None):
 		self.head = head
-		self.tail = tail
 		
 	def insertBeginning(self, data):
 		if self.head == None:
@@ -33,7 +32,6 @@ class DoublyLinkedList:
 			new_node = Node(data)
 			new_node.set_next(self.head)
 			self.head.set_prev(new_node)
-			self.tail = self.head
 			self.head = new_node
 
 	def size(self):

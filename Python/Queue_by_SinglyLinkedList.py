@@ -79,6 +79,9 @@ class SinglyLinkedList:
 		else:
 			previous.set_next(current.get_next())
 
+	def Empty(self):
+		self.__head
+
 	def print(self):
 		current = self.__head
 		while current:
@@ -105,47 +108,46 @@ class SinglyLinkedList:
 			self.__head = new_node
 			elem = elem.get_next()
 
+	def copy(self, other):
+		current = self.__head
+		while current:
+			other.insertEnd(current.get_data())
+			current = current.get_next()
+
 class Queue:
 	def __init__(self):
-		self.items = SinglyLinkedList()
-		self.items_reversed = SinglyLinkedList()
-
-	def isEmpty(self):
-		return self.items.size() == 0
+		self.into = SinglyLinkedList()
+		self.out = SinglyLinkedList()
 
 	def enqueue(self, data):
-		self.items.insert(data)
+		print("Inserted ", data)
+		self.into.insert(data)
 
 	def dequeue(self):
-		return self.items.pop()
-
-	def size(self):
-		return self.items.size()
-
-	def dequeueAll(self):
-		while self.items.size() != 0:
-			print("Popping", self.items.getHead().get_data())
-			self.items.pop()
+		if self.into.getHead() == None and self.out.getHead() == None:
+			return None
+		elif self.out.getHead() == None:
+			temp_list = SinglyLinkedList()
+			self.into.copy(temp_list)
+			temp_list.reverse()
+			temp_list.copy(self.out)
+			# self.out.print()
+		temp = self.out.getHead()
+		self.out.pop()
+		print("Popped ", temp.get_data())
 
 	def print(self):
-		self.items.print()
-
-
-sll = SinglyLinkedList()
-sll.insert(1)
-sll.insert(2)
-sll.insert(3)
-sll.insert(4)
-sll.insert(5)
-sll.print()
-sll.pop()
-sll.pop()
-sll.print()
-sll.pop()
-sll.pop()
-sll.print()
-sll.pop()
-sll.print()
+		if self.out.getHead() == None:
+			print("In: ", end='')
+			self.into.print()
+		else:
+			temp = SinglyLinkedList()
+			self.out.copy(temp)
+			temp.reverse()
+			print("Out: ", end='')
+			temp.print()
+			print("In: ", end='')
+			self.into.print()
 
 q = Queue()
 q.enqueue(1)
@@ -155,14 +157,25 @@ q.enqueue(4)
 q.enqueue(5)
 print("Printing queue: ")
 q.print()
-q.dequeueAll()
-
-
-sll.insertEnd(1)
-sll.insertEnd(2)
-sll.insertEnd(3)
-sll.insertEnd(4)
-sll.insertEnd(5)
-print()
-print("Printing Singly Linked List: ")
-sll.print()
+q.dequeue()
+print("Printing queue: ")
+q.print()
+q.dequeue()
+print("Printing queue: ")
+q.print()
+q.dequeue()
+print("Printing queue: ")
+q.print()
+q.enqueue(50)
+print("Printing queue: ")
+q.print()
+q.enqueue(51)
+print("Printing queue: ")
+q.print()
+q.enqueue(52)
+print("Printing queue: ")
+q.print()
+q.enqueue(53)
+print("Printing queue: ")
+q.print()
+# q.dequeueAll()

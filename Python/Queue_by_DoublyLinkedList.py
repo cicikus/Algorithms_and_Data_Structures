@@ -24,19 +24,22 @@ class Queue:
 		self.front = None
 		self.rear = None
 
+	def getFront(self):
+		return self.front
+
 	def enqueue(self, data):
 		if self.front == None:
 			self.front = Node(data)
 			self.rear = self.front
-			print("self.rear=", self.rear.get_data(), " and self.front=",
-				self.front.get_data(), sep='')
+			# print("self.rear=", self.rear.get_data(), " and self.front=",
+			# 	self.front.get_data(), sep='')
 		else:
 			new_node = Node(data)
 			new_node.set_prev(self.rear)
 			self.rear.set_next(new_node)
 			self.rear = new_node
-			print("self.rear=", self.rear.get_data(), " and self.front=",
-				self.front.get_data(), sep='')
+			# print("self.rear=", self.rear.get_data(), " and self.front=",
+			# 	self.front.get_data(), sep='')
 
 	def dequeue(self):
 		if self.front == None:
@@ -48,8 +51,8 @@ class Queue:
 			else:
 				self.front = self.front.get_next()
 				self.front.set_prev(None)
-		print("self.rear=", self.rear.get_data(), " and self.front=",
-				self.front.get_data(), sep='')
+		# print("self.rear=", self.rear.get_data(), " and self.front=",
+		# 		self.front.get_data(), sep='')
 		
 
 	def print(self):
@@ -68,7 +71,18 @@ q1.enqueue(6)
 q1.enqueue(3)
 q1.print()
 q1.dequeue()
+q1.print()
 q1.dequeue()
+q1.print()
 q1.dequeue()
-print()
+q1.print()
+while q1.getFront() != None:
+	q1.dequeue()
+	q1.print()
+
+q1.enqueue(5)
+q1.enqueue(2)
+q1.enqueue(7)
+q1.enqueue(6)
+q1.enqueue(3)
 q1.print()
