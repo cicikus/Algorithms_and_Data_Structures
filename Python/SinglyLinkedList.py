@@ -26,6 +26,13 @@ class SinglyLinkedList:
 		new_node.set_next(self.__head)
 		self.__head = new_node
 
+	def insertEnd(self, data):
+		new_node = Node(data)
+		current = self.__head
+		while current and current.get_next():
+			current = current.get_next()
+		current.set_next(new_node)
+
 	def size(self):
 		current = self.__head
 		count = 0
@@ -68,6 +75,7 @@ class SinglyLinkedList:
 		while current:
 			print(current.get_data(), end=' ')
 			current = current.get_next()
+		print()
 
 	def reverse(self):
 		current = self.__head
@@ -105,21 +113,28 @@ print("\nsll after reversed again: ")
 sll.print()
 print()
 
-sll2 = SinglyLinkedList()
-sll2.insert(6)
-sll2.insert(7)
-sll2.insert(8)
-sll2.insert(9)
-sll2.insert(10)
-print("sll2: ")
-sll2.print()
-print()
+# sll2 = SinglyLinkedList()
+# sll2.insert(6)
+# sll2.insert(7)
+# sll2.insert(8)
+# sll2.insert(9)
+# sll2.insert(10)
+# print("sll2: ")
+# sll2.print()
+# print()
 
-sll.concat(sll2)
-print("sll after concatenated with sll2: ")
-sll.print()
+# sll.concat(sll2)
+# print("sll after concatenated with sll2: ")
+# sll.print()
 
-print()
-print()
-print(sll2.getHead().get_data())
+# print()
+# print()
+# print(sll2.getHead().get_data())
 # print(sll2.head.data)
+
+sll.insertEnd(20)
+sll.print()
+sll.insertEnd(21)
+sll.print()
+sll.insertEnd(22)
+sll.print()

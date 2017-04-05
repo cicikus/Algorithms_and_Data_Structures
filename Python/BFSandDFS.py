@@ -14,7 +14,7 @@ def DFS(root):
 			s.append(current)
 			current = current.left 
 		else:
-			if(len(s) >0 ):
+			if(len(s)>0 ):
 				current = s.pop()
 				print (current.data)
 				current = current.right 
