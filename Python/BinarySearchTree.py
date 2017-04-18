@@ -244,7 +244,6 @@ class BinarySearchTree(TreeNode):
 		       /  \    /  \      / \    /   \
 		     10   35  60  90   130 170 250  400
 
-
 """
 
 mytree = BinarySearchTree(100)
